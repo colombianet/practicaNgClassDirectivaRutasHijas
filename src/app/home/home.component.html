@@ -1,0 +1,29 @@
+<h1 class="mt-3">Practicando clases y directivas</h1>
+<hr>
+
+<button class="btn btn-primary mr-2" (click)="changeSize(-5)"><i class="fas fa-minus"></i></button>
+<button class="btn btn-primary" (click)="changeSize(5)"><i class="fas fa-plus"></i></button>&nbsp;
+<span [style.fontSize.px]="sizeProperty">Texto que crece y decrece</span>
+
+<div class="dropdown mt-4">
+    <button class="btn dropdown-toggle" [ngClass]="changeColor(color)" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Selecciona mi color
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item text-danger" (click)="changeColor('danger')">Rojo</a></li>
+        <li><a class="dropdown-item text-primary" (click)="changeColor('primary')">Azul</a></li>
+        <li><a class="dropdown-item text-warning" (click)="changeColor('warning')">Amarillo</a></li>
+        <li><a class="dropdown-item text-dark" (click)="changeColor('dark')">Negro</a></li>
+    </div>
+</div>
+
+<p appHover class="mt-2">Si ubicas el mouse encima la directiva que tengo hace que me resalte</p>
+
+<button class="btn btn-primary" (click)="save()" [disabled]="loading">
+    <span *ngIf="!loading">
+        <i class="fas fa-save"></i> Guardar cambios
+    </span>
+    <span *ngIf="loading">
+        <i class="fas fa-sync fa-spin"></i> Guardando...
+    </span>
+</button>
